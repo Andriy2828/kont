@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "#\n# This is the server logic of a Shiny web application. You can run the \n# application by clicking 'Run App' above.\n#\n# Find out more about building applications with Shiny here:\n# \n#    http://shiny.rstudio.com/\n#\n\nlibrary(shiny)\n\nshinyServer(function(input, output) {\n  \n  output$text1 <- renderText({\n    U <- input$text1\n    paste(\"Input U is:\", input$text1)\n  })\n  output$text2 <- renderText({\n    P <- input$text2\n    paste(\"Input P is:\", input$text2)\n  })\n  output$rezult <- renderText({\n    U <- input$text1\n    P <- input$text2\n    U <- as.numeric(unlist(strsplit(U,\",\")))\n    P <- as.numeric(unlist(strsplit(P,\",\")))\n    \n    size <- length(P) - 1\n    R_start<-rep(0, size)\n    I <- c(U, R_start)\n    I1 <- I\n    tmp<-I[match(1,I):(match(1,I)+size)]\n    n<-0\n    \n    repeat {\n      \n      tmp1<-as.numeric(xor(tmp,P))\n      \n      if((match(1,I1)+size+1)>length(I1)){\n        R<-tmp1[2:length(tmp1)]; break;\n      }\n      \n      if(match(1,I1)==1){ \n        I1<-c(tmp1,I1[(match(1,I1)+size+1):length(I1)])\n      }else{\n        I1<-c(I1[1:(match(1,I1)-1)],tmp1,I1[(match(1,I1)+size+1):length(I1)])\n      }\n      if (is.na(match(1,I1))){\n        R<-rep(0,size); break;\n      }\n      if(match(1,I1)>(length(I1)-size)){\n        R<-I1[(length(I1)-size+1):length(I1)]; break;\n      }\n      \n      tmp<-I1[match(1,I1):(match(1,I1)+size)]\n      n<-n+1\n    }\n    rezult<-c(U,R)\n  })\n  \n})",
+    "created" : 1456766524848.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3951284866",
+    "id" : "8CA8CC4B",
+    "lastKnownWriteTime" : 1456756841,
+    "last_content_update" : 1456756841,
+    "path" : "D:/New and123/andruxa2828/test/server.R",
+    "project_path" : "server.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "#\n# This is the user-interface definition of a Shiny web application. You can\n# run the application by clicking 'Run App' above.\n#\n# Find out more about building applications with Shiny here:\n# \n#    http://shiny.rstudio.com/\n#\n\nlibrary(shiny)\n\nshinyUI(fluidPage(\n  \n  # Application title\n  titlePanel(\"EPIC\"),\n  \n  # Sidebar with a slider input for number of bins\n  sidebarLayout(\n    sidebarPanel(\n      textInput(\"text1\", label = h3(\"Input U\")),\n      selectInput(\"text2\", label = h3(\"Select box\"), \n                  \n                  choices = list(\"1,1,0,1\" , \"1,0,1,1\" , \"1,1,0,1,1\" ), \n                  \n                  selected = 1)\n    ),\n    \n    # Show a plot of the generated distribution\n    mainPanel(\n      fluidRow(column(6, \n                      verbatimTextOutput(\"text1\"),\n                      verbatimTextOutput(\"text2\"),\n                      verbatimTextOutput(\"rezult\")\n      ))\n    )\n  )\n))\n",
+    "created" : 1456766525519.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2218045825",
+    "id" : "1CD5C1E8",
+    "lastKnownWriteTime" : 1456761405,
+    "last_content_update" : 1456761405,
+    "path" : "D:/New and123/andruxa2828/test/ui.R",
+    "project_path" : "ui.R",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
